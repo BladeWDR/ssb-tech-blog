@@ -2,3 +2,6 @@ baseURL = 'https://blog.ssb-tech.net/'
 languageCode = 'en-us'
 title = 'SSB-Tech Blog'
 theme = 'm10c'
+[params]
+  description = "Tales from an angry sysadmin."
+  avatar = "author-image.png"

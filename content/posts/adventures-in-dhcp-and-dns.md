@@ -1,10 +1,8 @@
 +++
 date = '2024-12-02T23:57:12-05:00'
 draft = false
-title = 'Adventures in DHCP and DNS'
+title = "Adventures in DNS (But it's actually DHCP this time.)"
 +++
-
-# Adventures in DNS (But it's actually DHCP this time.)
 
 So, story time.
 
