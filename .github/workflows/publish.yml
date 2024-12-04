@@ -42,8 +42,10 @@ jobs:
         run: |
           ls -al ./themes/m10c
 
-      - name: Debug SSH key permissions
-        run: cat "$HOME/.ssh/id_ed25519"
+      - name: Debug SSH Key Secret
+        run: |
+          echo "Checking SSH Key"
+          echo "$ORACLE_CLOUD_SSH_KEY" | head -n 3
 
       - name: Install hugo and build the site.
         run: |
