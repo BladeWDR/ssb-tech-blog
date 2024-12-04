@@ -40,11 +40,17 @@ jobs:
           echo "${{ secrets.ORACLE_CLOUD_KNOWN_HOSTS }}" > "$HOME/.ssh/known_hosts"
           chmod 600 "$HOME/.ssh/known_hosts"
 
+      - name: install jq
+        run: |
+          sudo apt update && sudo apt install jq -y
+
 
       - name: Install hugo and build the site.
         run: |
-          wget https://github.com/gohugoio/hugo/releases/download/v0.139.3/hugo_0.139.3_linux-amd64.deb
-          sudo dpkg -i hugo_0.139.3_linux-amd64.deb
+          URL=$(curl -s https://api.github.com/repos/gohugoio/hugo/releases/latest | jq -r '.assets[] | select(.name | contains("linux-amd64.deb")) | .browser_download_url')
+          wget "$URL"
+          DEB_FILE=$(basename "$URL")
+          sudo dpkg -i "$DEB_FILE"
           hugo
 
       - name: Check if public directory exists
