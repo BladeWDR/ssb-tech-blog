@@ -38,6 +38,14 @@ jobs:
           echo "$ORACLE_CLOUD_KNOWN_HOSTS" > "$HOME/.ssh/known_hosts"
           chmod 600 "$HOME/.ssh/known_hosts"
 
+      - name: list directories
+        run: |
+          echo "current dir"
+          ls -al
+          echo "workspace dir is $GITHUB_WORKSPACE"
+          ls -al $GITHUB_WORKSPACE
+          
+
       - name: Install hugo and build the site.
         run: |
           sudo apt update && sudo apt install hugo -y
