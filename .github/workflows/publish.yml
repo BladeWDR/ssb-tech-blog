@@ -38,19 +38,15 @@ jobs:
 
       - name: list directories
         run: |
-          echo "current dir"
-          ls -al
-          echo "workspace dir is $GITHUB_WORKSPACE"
-          ls -al $GITHUB_WORKSPACE
+          ls -al ./themes/m10c
           
-
       - name: Install hugo and build the site.
         run: |
           sudo apt update && sudo apt install hugo -y
           hugo --config hugo.toml
 
       - name: SCP the public directory to the remote server.
-        run: scp -R -i "$HOME/.ssh/id_ed25519" ./public github@blog.bladewdr.xyz:/var/www/blog.ssb-tech.net
+        run: scp -R -i "$HOME/.ssh/id_ed25519" ./public github@blog.ssb-tech.net:/var/www/blog.ssb-tech.net
 
       - name: Clean up .ssh directory.
         run: rm -rf "$HOME/.ssh"
