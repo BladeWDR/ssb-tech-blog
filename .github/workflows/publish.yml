@@ -30,12 +30,12 @@ jobs:
 
       - name: Import SSH private key
         run: |
-          echo "$ORACLE_CLOUD_SSH_KEY" > "$HOME/.ssh/id_ed25519"
+          echo "${{ secrets.ORACLE_CLOUD_SSH_KEY }}" > "$HOME/.ssh/id_ed25519"
           chmod 600 $HOME/.ssh/id_ed25519
 
       - name: Import host into known_hosts file
         run: |
-          echo "$ORACLE_CLOUD_KNOWN_HOSTS" > "$HOME/.ssh/known_hosts"
+          echo "${{ secrets.ORACLE_CLOUD_KNOWN_HOSTS }}" > "$HOME/.ssh/known_hosts"
           chmod 600 "$HOME/.ssh/known_hosts"
 
       - name: list directories
@@ -45,7 +45,7 @@ jobs:
       - name: Debug SSH Key Secret
         run: |
           echo "Checking SSH Key"
-          echo "$ORACLE_CLOUD_SSH_KEY" | head -n 3
+          echo "${{ secrets.ORACLE_CLOUD_SSH_KEY }}" | head -n 3
 
       - name: Install hugo and build the site.
         run: |
@@ -53,7 +53,7 @@ jobs:
           hugo --config hugo.toml --themesDir ./themes
 
       - name: SCP the public directory to the remote server.
-        run: scp -R -o StrictHostKeyChecking=no -o UserKnownHostsFile=/dev/null -i "$HOME/.ssh/id_ed25519" ./public github@blog.ssb-tech.net:/var/www/blog.ssb-tech.net
+        run: scp -R -i "$HOME/.ssh/id_ed25519" ./public github@blog.ssb-tech.net:/var/www/blog.ssb-tech.net
 
       - name: Clean up .ssh directory.
         run: rm -rf "$HOME/.ssh"
