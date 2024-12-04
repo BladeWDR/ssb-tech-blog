@@ -22,6 +22,8 @@ jobs:
     steps:
       # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
       - uses: actions/checkout@v4
+        with:
+          submodules: 'recursive'
 
       - name: Create the .ssh directory if it does not exist.
         run: |
@@ -41,11 +43,6 @@ jobs:
       - name: list directories
         run: |
           ls -al ./themes/m10c
-
-      - name: Debug SSH Key Secret
-        run: |
-          echo "Checking SSH Key"
-          echo "${{ secrets.ORACLE_CLOUD_SSH_KEY }}" | head -n 3
 
       - name: Install hugo and build the site.
         run: |
