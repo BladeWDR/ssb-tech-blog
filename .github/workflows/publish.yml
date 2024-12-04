@@ -47,9 +47,8 @@ jobs:
 
       - name: Install hugo and build the site.
         run: |
-          URL=$(curl -s https://api.github.com/repos/gohugoio/hugo/releases/latest | jq -r '.assets[] | select(.name | contains("linux-amd64.deb")) | .browser_download_url')
-          wget "$URL"
-          DEB_FILE=$(basename "$URL")
+          wget $(curl -s https://api.github.com/repos/gohugoio/hugo/releases/latest  | jq -r '.assets[] | select(.name | contains ("deb")) | .browser_download_url')
+          DEB_FILE=(ls | grep hugo | head 1)
           sudo dpkg -i "$DEB_FILE"
           hugo
 
