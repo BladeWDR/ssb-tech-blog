@@ -43,7 +43,7 @@ jobs:
       - name: Install hugo and build the site.
         run: |
           sudo apt update && sudo apt install hugo -y
-          hugo --config hugo.toml
+          hugo --config hugo.toml --themesDir ./themes
 
       - name: SCP the public directory to the remote server.
         run: scp -R -i "$HOME/.ssh/id_ed25519" ./public github@blog.ssb-tech.net:/var/www/blog.ssb-tech.net
