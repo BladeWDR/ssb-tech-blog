@@ -47,6 +47,16 @@ jobs:
           sudo dpkg -i hugo_0.139.3_linux-amd64.deb
           hugo
 
+      - name: Check if public directory exists
+        run: |
+          if [ ! -d ./public ]; then
+            echo "Error: ./public directory does not exist!"
+            exit 1
+          else
+            ls -al ./public
+          fi
+
+
       - name: SCP the public directory to the remote server.
         run: scp -R -i "$HOME/.ssh/id_ed25519" ./public github@blog.ssb-tech.net:/var/www/blog.ssb-tech.net
 
