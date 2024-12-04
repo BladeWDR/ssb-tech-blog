@@ -46,7 +46,7 @@ jobs:
           hugo --config hugo.toml --themesDir ./themes
 
       - name: SCP the public directory to the remote server.
-        run: scp -R -i "$HOME/.ssh/id_ed25519" ./public github@blog.ssb-tech.net:/var/www/blog.ssb-tech.net
+        run: scp -R -o StrictHostKeyChecking=no -o UserKnownHostsFile=/dev/null -i "$HOME/.ssh/id_ed25519" ./public github@blog.ssb-tech.net:/var/www/blog.ssb-tech.net
 
       - name: Clean up .ssh directory.
         run: rm -rf "$HOME/.ssh"
