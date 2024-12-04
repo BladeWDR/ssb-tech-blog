@@ -40,14 +40,12 @@ jobs:
           echo "${{ secrets.ORACLE_CLOUD_KNOWN_HOSTS }}" > "$HOME/.ssh/known_hosts"
           chmod 600 "$HOME/.ssh/known_hosts"
 
-      - name: list directories
-        run: |
-          ls -al ./themes/m10c
 
       - name: Install hugo and build the site.
         run: |
-          sudo apt update && sudo apt install hugo -y
-          hugo --config hugo.toml --themesDir ./themes
+          wget https://github.com/gohugoio/hugo/releases/download/v0.139.3/hugo_0.139.3_linux-amd64.deb
+          sudo dpkg -i hugo_0.139.3_linux-amd64.deb
+          hugo
 
       - name: SCP the public directory to the remote server.
         run: scp -R -i "$HOME/.ssh/id_ed25519" ./public github@blog.ssb-tech.net:/var/www/blog.ssb-tech.net
