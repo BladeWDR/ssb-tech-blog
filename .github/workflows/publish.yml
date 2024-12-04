@@ -43,7 +43,7 @@ jobs:
           ls -al ./themes/m10c
 
       - name: Debug SSH key permissions
-        run: ls -l "$HOME/.ssh/id_ed25519"
+        run: cat "$HOME/.ssh/id_ed25519"
 
       - name: Install hugo and build the site.
         run: |
