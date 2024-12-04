@@ -5,3 +5,15 @@ theme = 'm10c'
 [params]
   description = "Tales from an angry sysadmin. Follow me as I test out things in my homelab. I may also go on rants occasionally. Sorry about the mess."
   avatar = "author-image.png"
+# [params.giscus]
+#   repo = "BladeWDR/ssb-tech-blog"
+#   repoID = "R_kgDONYHVWA"
+#   category = "Posts"
+#   categoryID = "DIC_kwDONYHVWM4Ck5Kg"
+#   mapping = "title"
+#   reactionsEnabled = "1"
+#   emitMetadata = "0"
+#   inputPosition = "top"
+#   theme = "dark"
+#   lang = "en"
+#   loading = "lazy"
