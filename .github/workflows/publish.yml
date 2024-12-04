@@ -40,7 +40,7 @@ jobs:
 
       - name: Install hugo and build the site.
         run: |
-          apt update && apt install hugo -y
+          sudo apt update && sudo apt install hugo -y
           hugo
 
       - name: SCP the public directory to the remote server.
