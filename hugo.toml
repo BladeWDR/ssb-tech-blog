@@ -2,6 +2,9 @@ baseURL = 'https://blog.ssb-tech.net/'
 languageCode = 'en-us'
 title = 'SSB-Tech Blog'
 theme = 'm10c'
+enableGitInfo = true
+[frontmatter]
+    lastmod = ["lastmod", ":git", "date", "publishDate"]
 [params]
   description = "Tales from an angry sysadmin. Follow me as I test out things in my homelab. I may also go on rants occasionally. Sorry about the mess."
   avatar = "author-image.png"
@@ -17,3 +20,5 @@ theme = 'm10c'
   icon = "brand-bluesky"
   name = "BlueSky"
   url = "https://bsky.app/profile/bladewdr.bsky.social"
+[markup.goldmark.renderer]
+unsafe = true
