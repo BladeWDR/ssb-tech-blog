@@ -4,6 +4,11 @@ draft = false
 title = 'Fedora 41 and ZFS'
 +++
 
+{{% callout note %}}
+ZFS 2.2.7 has been released with up to Linux kernel 6.12 support, so this workaround is no longer necessary.
+I'll leave the post up in case this is ever useful in the future.
+{{% /callout %}}
+
 I previously posted about how to [build a desktop OS from the Fedora Server installer]({{< relref "posts/building-fedora-server-into-a-desktop/index.md" >}}).
 
 This is a bit of a follow up to that post.
