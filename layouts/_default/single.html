@@ -6,8 +6,14 @@
       <div class="post-meta">
         <div>
           {{ partial "icon.html" (dict "ctx" $ "name" "calendar") }}
-          {{ .PublishDate.Format "Jan 2, 2006" }}
+          Published: {{ .PublishDate.Format "Jan 2, 2006" }}
         </div>
+        {{ if ne .Lastmod .PublishDate }}
+        <div>
+          {{ partial "icon.html" (dict "ctx" $ "name" "edit") }}
+          Last modified: {{ .Lastmod.Format "Jan 2, 2006" }}
+        </div>
+        {{ end }}
         <div>
           {{ partial "icon.html" (dict "ctx" $ "name" "clock") }}
           {{ .ReadingTime }} min read
