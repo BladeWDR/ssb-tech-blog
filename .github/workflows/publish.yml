@@ -8,6 +8,9 @@ on:
 
   workflow_dispatch:
 
+env:
+  HUGO_VERSION: 0.137.1
+
 jobs:
   build:
     runs-on: ubuntu-latest
@@ -36,12 +39,18 @@ jobs:
         run: |
           sudo apt update && sudo apt install jq -y
 
-
-      - name: Install hugo and build the site.
+      # temporary workaround for Hugo v0.139.5 being released with no deb package available.
+      - name: Install hugo and build the site 
         run: |
-          wget -O "$HOME/hugo-latest.deb" $(curl -s https://api.github.com/repos/gohugoio/hugo/releases/latest  | jq -r '.assets[] | select(.name | contains ("linux-amd64.deb")) | .browser_download_url')
-          sudo dpkg -i "$HOME/hugo-latest.deb"
+          wget -O ${{ runner.temp }}/hugo.deb https://github.com/gohugoio/hugo/releases/download/v${HUGO_VERSION}/hugo_extended_${HUGO_VERSION}_linux-amd64.deb \
+          && sudo dpkg -i ${{ runner.temp }}/hugo.deb
           hugo
+
+      # - name: Install hugo and build the site.
+      #   run: |
+      #     wget -O "$HOME/hugo-latest.deb" $(curl -s https://api.github.com/repos/gohugoio/hugo/releases/latest  | jq -r '.assets[] | select(.name | contains ("linux-amd64.deb")) | .browser_download_url')
+      #     sudo dpkg -i "$HOME/hugo-latest.deb"
+      #     hugo
 
       - name: Check if public directory exists
         run: |
