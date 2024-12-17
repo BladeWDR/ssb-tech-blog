@@ -31,6 +31,9 @@
       </div>
       {{- end }}
     </header>
+    <div class="post-toc">
+      {{ .TableOfContents }}
+    </div>
     <div class="post-content">
       {{ .Content }}
     </div>
@@ -38,4 +41,4 @@
       {{ partial "giscus.html" . }}
     </div>
   </article>
-{{ end }}
+{{end }}
