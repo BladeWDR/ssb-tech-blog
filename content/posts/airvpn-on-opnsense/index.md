@@ -41,7 +41,7 @@ it in a moment.
 Next, we'll be heading into Opnsense. Log in and navigate to the VPN
 section. Under Wireguard, create a peer.
 
-``` 
+```text
 Name: AirVPN 
 Public Key: you can get this from the wireguard configuration file you downloaded in step 2.
 Pre-Shared Key: you can get this from the wireguard configuration file you
@@ -56,7 +56,7 @@ Save, and next we'll head over to Instances. Configure a new instance with the f
 
 ***Make sure you enable advanced features.***
 
-```
+```text
 Name: AirVPNLocal
 Public Key: Here you'll want to put the public key we got in step 1. This is the public key of OPNSENSE.
 Private Key: Grab this from the config file. It will be under the Interface section.
@@ -90,7 +90,7 @@ Create a new gateway and give it a descriptive name. I called mine AIRVPN_GW.
 
 Here are the other settings you'll need to configure on this gateway.
 
-```
+```text
 Interface: airvpn_wg
 Address family: IPv4
 IP Address: 10.128.0.1
@@ -108,7 +108,7 @@ Go to Firewall > NAT > Outbound and add a rule.
 
 Configure only the following settings and leave everything else default.
 
-```
+```text
 Interface: airvpn_wg
 Source Address: LAN net (or whatever you're using.)
 Description: Outbound NAT for AirVPN
@@ -124,7 +124,7 @@ Once you've created the alias, navigate to Firewall > Rules > Your network.
 
 Create a pass rule with the following settings defined:
 
-```
+```text
 Interface: LAN
 Protocol: Any
 Source: VPN_Required
@@ -136,7 +136,7 @@ Advanced features:
 
 Next head to Rules > Floating and define a Block rule.
 
-```
+```text
 Interface: Your WAN interface
 Source: Any
 Protocol: Any
@@ -171,7 +171,7 @@ I recommend using ipv4 only.
 
 On Opnsense, configure a rule on the airvpn_wg interface. (Firewall > Rules > airvpn_wg)
 
-```
+```text
 Action: Pass
 Protocol: TCP/UDP
 Destination: The IP address of your box of Linux ISOs.
@@ -181,7 +181,7 @@ Reply-To: AIRVPN_GW
 
 You'll also want to configure a port forward under NAT > Port Forward.
 
-```
+```text
 Interface: airvpn_wg
 Protocol: TCP/UDP
 Destination: airvpn_wg address

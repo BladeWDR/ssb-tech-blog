@@ -82,7 +82,7 @@ First, run the below command and get any pending updates out of the way.
 
 Reboot may or may not be necessary if there's not a new kernel.
 
-```
+```shell
 sudo dnf upgrade && sudo reboot now
 ```
 
@@ -92,13 +92,13 @@ I don't use a typical desktop environment, I use SwayWM, but I do use GDM as my 
 
 If you wish to install Gnome instead of Sway, you can use the following command:
 
-```
+```shell
 sudo dnf group install gnome
 ```
 
 ### Install SwayWM
 
-```
+```shell
 sudo dnf group install swaywm
 ```
 
@@ -106,7 +106,7 @@ sudo dnf group install swaywm
 
 This package will handle our login sessions and give us the nice login screen to log into Sway with.
 
-```
+```shell
 sudo dnf install gdm
 ```
 
@@ -116,7 +116,7 @@ Right now, the multi-user.target is the default systemd target on login.
 
 If we want our GUI to start upon boot, we need to make this `graphical.target` instead.
 
-```
+```shell
 sudo systemctl set-default graphical.target
 ```
 
@@ -124,7 +124,7 @@ sudo systemctl set-default graphical.target
 
 These packages can be useful if we need to build anything from source, or if you use anything like Neovim with `nvim-treesitter`.
 
-```
+```shell
 sudo dnf install make automake gcc gcc-c++ kernel-devel tar unzip
 ```
 
@@ -132,11 +132,11 @@ sudo dnf install make automake gcc gcc-c++ kernel-devel tar unzip
 
 Red Hat does not bundle these codecs with Fedora, so if you want hardware decoding for H264 and H265 (and you do), run this command to take care of all of that.
 
-```
+```shell
 sudo dnf install https://mirrors.rpmfusion.org/free/fedora/rpmfusion-free-release-$(rpm -E %fedora).noarch.rpm https://mirrors.rpmfusion.org/nonfree/fedora/rpmfusion-nonfree-release-$(rpm -E %fedora).noarch.rpm
 ```
 
-```
+```shell
 sudo dnf group install multimedia sound-and-video
 ```
 
@@ -148,13 +148,15 @@ For some reason the first time I added the rpmfusion repos, the multimedia group
 
 Set dark GTK theme by default:
 
-```
+```shell
 gsettings set org.gnome.desktop.interface color-scheme 'prefer-dark'
 ```
 
-## Start and enable GDM
+Most GTK applications will respect this and avoid the eye-rending white backgrounds.
 
-```
+### Start and enable GDM
+
+```shell
 sudo systemctl enable gdm && sudo systemctl start gdm
 ```
 

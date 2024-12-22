@@ -25,7 +25,7 @@ It took some digging around to find the correct process, because it seems to be 
 
 First, go through and enable the following services:
 
-```
+```shell
 sudo systemctl enable zfs.target zfs-mount.target zfs-import.target zfs-import-cache.service
 ```
 
@@ -35,19 +35,19 @@ The ACTUAL location of the cache file (which you can see if you actually read th
 
 If the file doesn't exist, create it.
 
-```
+```shell
 sudo touch /usr/local/etc/zfs/zpool.cache
 ```
 
 Import your pool.
 
-```
+```shell
 sudo zpool import poolname
 ```
 
 If you print out the cache file now it should no longer be empty.
 
-```
+```shell
 cat /usr/local/etc/zfs/zpool.cache
 ```
 
