@@ -154,6 +154,29 @@ gsettings set org.gnome.desktop.interface color-scheme 'prefer-dark'
 
 Most GTK applications will respect this and avoid the eye-rending white backgrounds.
 
+**Update 2024/12/24**
+
+You probably also want to install some fonts. After writing this post, I discovered that Fedora Server is missing a `Dingbats` font that contains specific symbols.
+
+You can get this by installing a font like [Symbola](https://fontlibrary.org/en/font/symbola).
+
+I also recommend installing a Nerd Font like FiraCode from [the Nerd Font website.](https://www.nerdfonts.com/font-downloads).
+
+You can put them in a few different locations:
+
+- `/usr/share/fonts`
+- `/usr/local/share/fonts`
+- `~/.local/share/fonts`
+
+Personally, I like installing them to `/usr/local/share/fonts` so that they're available to all users on the system. (Even though I'm typically the only user on my systems.)
+
+Download the font zip file.
+
+```shell
+sudo unzip font.zip -d /usr/local/share/fonts/
+sudo chown root:root /usr/local/share/fonts/font*.ttf
+```
+
 ### Start and enable GDM
 
 ```shell
