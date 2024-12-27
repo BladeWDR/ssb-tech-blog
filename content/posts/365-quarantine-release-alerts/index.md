@@ -1,8 +1,8 @@
----
++++
 title = 'PSA - alert policies in Office 365 depend on audit logging'
 date = 2024-12-27T13:18:28-05:00
 draft = false
----
++++
 
 This post is a bit of a PSA of sorts.
 
