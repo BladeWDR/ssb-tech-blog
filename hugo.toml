@@ -20,5 +20,11 @@ enableGitInfo = true
   icon = "brand-bluesky"
   name = "BlueSky"
   url = "https://bsky.app/profile/bladewdr.bsky.social"
+[markup]
+  [markup.goldmark]
+    [markup.goldmark.parser]
+      [markup.goldmark.parser.attribute]
+        block = true
+        title = true
 [markup.goldmark.renderer]
 unsafe = true
