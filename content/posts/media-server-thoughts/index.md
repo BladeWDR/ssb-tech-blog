@@ -84,7 +84,7 @@ Oh boy. I'm so glad you asked.
 
 This is a rabbit hole beyond imagining - once you start, I dare you to stop until *everything* with regards to your media collection is automated.
 
-I will not go into more detail here, because it will make this post a *mile* long if I do. Maybe I'll make another post at some point going into detail about how I, in particular, have my media stack configured. **(Let me know in the comments if you're interested! Hint hint!)**
+I will not go into more detail here, because it will make this post a *mile* long if I do. Maybe I'll make another post at some point going into detail about how I, in particular, have my media stack configured.
 
 In no particular order:
 
