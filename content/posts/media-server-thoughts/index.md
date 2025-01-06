@@ -1,10 +1,14 @@
 +++
 title = 'Thoughts on starting a media server in 2025'
 date = 2025-01-03T17:56:14-05:00
-draft = true
+draft = false
 +++
 
 # Thoughts on starting a media server in 2025
+
+{{% callout note %}}
+Be warned that the text below is an opinion piece. My way is not the be-all-end-all, but this is how *I* would choose to do it if I was starting over from scratch.
+{{% /callout %}}
 
 Recently, someone on one of the less technical Discord servers that I frequent asked a question about setting up [Plex](https://plex.tv).
 
@@ -24,25 +28,29 @@ It's a newer piece of software, but it is completely free and open source, and h
 
 Another potential option is [Emby](https://emby.media), but while I've heard good things about it (Jellyfin happens to be a fork of it!) I have very little experience with it personally.
 
+Plex is still a viable option if you're not super technical and want to be able to share your media library easily with friends and family. Just know that running Plex does now come with some privacy implications.
+
+If you do go with Plex, make sure you follow the steps in this [Reddit comment](https://old.reddit.com/r/selfhosted/comments/180maoe/plex_crossed_a_line_with_your_week_in_review/ka7lzkv/) to disable most of the problematic "features".
+
 ## 2. What hardware do I need?
 
-The hardware requirements for running a basic, single person media server are more modest than you might expect. What I would recommend for someone getting started is a PC with a relatively recent Intel processor, 8GB of RAM, and an SSD boot drive. Something like an off-lease Dell Optiplex 3060 micro PC would work fine.
+The hardware requirements for running a basic, single person media server are more modest than you might expect. What I would recommend for someone getting started is a PC with a relatively recent Intel processor, 8GB of RAM, and an SSD boot drive. Something like an off-lease Dell Optiplex 3060 micro PC from eBay would work fine.
 
-The reason for this?
+What's the reason for recommending an Intel CPU specifically?
 
-**QuickSync.**
+In short, **QuickSync.**
 
-Intel QuickSync is a hardware transcoding technology integrated into the iGPU on modern Intel CPUs. This means that you don't need a separate video card for handling transcoding tasks between different video formats.
+Intel QuickSync is a hardware transcoding technology integrated into the iGPU on modern Intel CPUs. This means that you don't need a separate video card for handling transcoding tasks.
 
-Transcoding is important for media servers, as they often need to transcode one format to another on the fly. Without hardware transcoding, you'll be stuck with software transcoding, which will result in a ton of unnecessary CPU usage and power draw.
+Transcoding is important for media servers, as they often need to transcode one video format to another on the fly. Without hardware transcoding, you'll be stuck with software transcoding, which will result in a ton of unnecessary CPU usage and power draw.
 
-It is by far the best in class when it comes to price to performance and performance per watt.
+QuickSync is by far the best in class when it comes to price to performance and performance per watt.
 
 That said, avoid the earlier iterations of QuickSync, as they were far less performant.
 
-Anything above 8th generation Intel should be sufficient for this task. Think i5-8500, i7-8700 - even the i3 variant would probably be enough for a low power machine.
+Anything above 8th generation Intel should be sufficient for this task. Think i5-8500, i7-8700 - even the i3 variant would probably be enough for a low power machine with only a few users.
 
-You'll also need some storage. This doesn't have to be anything special - if your data needs are modest, you can probably get away with a single hard drive, or even a USB external hard drive, if that's all you have.
+You'll also need some storage. This doesn't have to be anything special - if your data needs are modest, you can probably get away with a single hard drive, or even a USB external hard drive, if that's all you have on hand and you want to get started.
 
 If you need more space, though, look into getting a NAS to store the media. This will be a separate box that your media server will talk to over the network in order to get to the media files.
 
@@ -86,8 +94,8 @@ In no particular order:
 - [Prowlarr](https://prowlarr.com) - Indexer manager for the other *Arr apps.
 - [Bazarr](https://www.bazarr.media/) - Subtitles manager
 - [Overseerr](https://overseerr.dev/) / [Jellyseerr](https://github.com/Fallenbagel/jellyseerr) - Manage requests for movies and TV shows.
-- [Recylarr](https://recyclarr.dev/wiki/getting-started/) - Automatically applies the [TraSH Guides](https://trash-guides.info) recommendations to your media. (I'll admit this one is a bit niche, but I love it.)
 - [Sabnzbd](https://sabnzbd.org/) - Usenet client
+- [Recylarr](https://recyclarr.dev/wiki/getting-started/) - Automatically applies the [TraSH Guides](https://trash-guides.info) recommendations to your media. (I'll admit this one is a bit niche, but I love it.)
 
 {{% callout note %}}
 (Jellyseerr being a fork of Overseerr that works with Jellyfin. Supposedly, Jellyfin support is coming to Overseerr, but it hasn't made it there yet.)
@@ -103,7 +111,7 @@ Make a central directory on whatever you're using to store everything and call i
 
 `/mnt/media`, `D:\media`, `/Volumes/Rick Astley Fan Page`, I don't care.
 
-I *highly* recommend structuring it the way they suggest to in the aforementioned [TraSH Guides](https://trash-guides.info) as it will save you a lot of headaches down the line.
+I *highly* recommend structuring it the way they suggest to in the aforementioned [TraSH Guides](https://trash-guides.info/File-and-Folder-Structure/) as it will save you a lot of headaches down the line.
 
 It all comes back to this - you have a *central* folder, whatever it is called, and all of your media goes *inside it*, and is broken down further from there.
 
@@ -122,6 +130,6 @@ If you don't care if you lose your media collection, that's fine. But if you're 
 
 Even if your backup is just copying one external hard drive to another periodically - that's better than nothing.
 
-I'm of the opinion that backups should be automated, and something else automated should be checking on them periodically to make sure that they're doing what they should be doing.
+I'm of the opinion that backups should be automated, and monitored at all times, but that's beyond the scope of this particular post.
 
 But please, however you have to do it - make backups!
