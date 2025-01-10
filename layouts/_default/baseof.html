@@ -3,6 +3,16 @@
   <head>
     <title>{{ if .IsHome }}{{ .Site.Title }}{{ else }}{{ .Title }} // {{ .Site.Title }}{{ end }}</title>
     <link rel="shortcut icon" href="{{ .Site.Params.favicon | default "/favicon.ico" }}" />
+
+    <!--Goatcounter tracking for the page. See https://stats.bladewdr.xyz-->
+    <script>
+    window.goatcounter = {
+      path: function(p) { return location.host + p }
+    }
+    </script>
+    <script data-goatcounter="https://stats.bladewdr.xyz/count"
+    async src="//stats.bladewdr.xyz/count.js"></script>
+
     <meta charset="utf-8" />
     {{ hugo.Generator }}
     <meta name="viewport" content="width=device-width, initial-scale=1" />
