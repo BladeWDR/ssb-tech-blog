@@ -63,7 +63,7 @@ jobs:
 
 
       - name: SCP the public directory to the remote server.
-        run: scp -r -i "$HOME/.ssh/id_ed25519" ./public/* github@blog.ssb-tech.net:/var/www/blog.ssb-tech.net
+        run: scp -r -i "$HOME/.ssh/id_ed25519" ./public/* github@143.47.99.12:/var/www/blog.ssb-tech.net
 
       - name: Clean up .ssh directory.
         run: rm -rf "$HOME/.ssh"
