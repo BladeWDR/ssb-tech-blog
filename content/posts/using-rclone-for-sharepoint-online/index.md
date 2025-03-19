@@ -53,9 +53,13 @@ First you need to create a custom client id. The default client ID will likely e
 
 Next, get the DriveID of the SharePoint site that you're trying to create a remote for.
 
-We'll be using the Microsoft Graph module for this. You'll want to connect to Graph with a user that has admin privileges.
+We'll be using the Microsoft Graph PowerShell module for this. You'll want to connect to Graph with a user that has admin privileges.
 
-The "site-name" mentioned here is the same one at the end of the SharePoint link, like https://contoso.sharepoint.com/sites/**Accounting**
+The "site-name" mentioned here is the same one at the end of the SharePoint link, like  
+
+https://contoso.sharepoint.com/sites/**Accounting**
+
+So in this case, Accounting would be the site name.
 
 ```ps1
 Connect-MgGraph -Scopes "Sites.Read.All"
