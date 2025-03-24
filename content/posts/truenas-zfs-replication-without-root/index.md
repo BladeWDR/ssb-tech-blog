@@ -20,6 +20,8 @@ You should also lock down access to the backup system in other ways, but that's 
 
 Go to Credentials > Users and create new users. Just create normal user accounts. Don't give it any extra permissions. I also recommend *unchecking* the box that allows it to be used for SMB authentication.
 
+Make sure that you change the login shell from "nologin" to "bash" or "zsh".
+
 I normally just call mine backup_user, but you can make it anything you want.
 
 ## Create SSH credentials
