@@ -70,3 +70,5 @@ For the moment I've settled on this setup:
 It does essentially everything that was on my laundry list, but I'm not particularly happy with NextPod as my desktop solution. It works, but it lacks even the most basic management features, and the playback UI is, as I said, barebones.
 
 If anyone else has any suggestions I'd like to hear about them. I'll check out the updated PinePods when the sync updates drops, but for the moment I'll leave this as it is.
+
+**Update:** I was just made aware of [RePod](https://apps.nextcloud.com/apps/repod) which looks _much_ more functional than NextPod.
