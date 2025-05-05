@@ -39,7 +39,7 @@ Supposedly there is a large update to sync coming to PinePods in the next few da
 
 ## PodFetch
 
-[PodFetch](https://github.com/SamTV12345/PodFetch) is another postcast manager. This one comes with its own built-in Gpodder sync mechanism that just needs to be enabled via an environment variable.
+[PodFetch](https://github.com/SamTV12345/PodFetch) is another podcast manager. This one comes with its own built-in Gpodder sync mechanism that just needs to be enabled via an environment variable.
 
 The good:
 
