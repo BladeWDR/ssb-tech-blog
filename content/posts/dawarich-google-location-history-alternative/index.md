@@ -4,7 +4,7 @@ date = 2025-05-14T19:13:45-04:00
 draft = false
 +++
 
-Continuing on the theme of moving all of my stuff out of _other people's cloud_ and into mine - I was recently made aware of [Dawarich](https://dawarich.app) while listening to the [Linux Unplugged](https://linuxunplugged.com/) podcast.
+Continuing on the theme of moving all of my stuff out of _other people's cloud_ and into mine - I was recently made aware of [Dawarich](https://dawarich.app) while listening to the [Linux Unplugged](https://linuxunplugged.com/614) podcast.
 
 This is touted as an alternative to Google's Location History feature, which is something that I use frequently. I need it to account for my time at work, so it's fairly important that I have a solution like this.
 
