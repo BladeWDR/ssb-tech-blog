@@ -134,7 +134,7 @@ Like I said, this is a doozy, and unusually, it's not as simple as `docker compo
 Log into your server and create a new folder for Cially.
 
 1. `sudo mkdir -p /apps/cially`
-2. `sudo chown -R $USER:USER /apps/cially && cd /apps/cially`
+2. `sudo chown -R $USER:$USER /apps/cially && cd /apps/cially`
 3. Now, create a .env file in this directory: `vim .env` or `nano .env`
 4. Add the following two environment variables, replacing them with your Client ID and token where appropriate:
 
