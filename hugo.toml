@@ -19,7 +19,7 @@ enableGitInfo = true
 [[params.social]]
   icon = "brand-bluesky"
   name = "BlueSky"
-  url = "https://bsky.app/profile/bladewdr.bsky.social"
+  url = "https://bsky.app/profile/bladewdr.xyz"
 [markup]
   [markup.goldmark]
     [markup.goldmark.parser]
