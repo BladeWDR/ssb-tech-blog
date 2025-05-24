@@ -34,6 +34,7 @@ services:
     restart: ${DAWARICH_RESTART:-unless-stopped}
     volumes:
       - /etc/localtime:/etc/localtime:ro
+      - ./etc/dawrich/storage:/var/app/storage
     networks:
       - traefik
     stdin_open: true
