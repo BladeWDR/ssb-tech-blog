@@ -4,6 +4,10 @@ date = 2025-05-14T19:13:45-04:00
 draft = false
 +++
 
+{{% callout note %}}
+2025/05/24 - edited to fix some mistakes I caught later in my docker compose.
+{{% /callout %}}
+
 Continuing on the theme of moving all of my stuff out of _other people's cloud_ and into mine - I was recently made aware of [Dawarich](https://dawarich.app) while listening to the [Linux Unplugged](https://linuxunplugged.com/614) podcast.
 
 This is touted as an alternative to Google's Location History feature, which is something that I use frequently. I need it to account for my time at work, so it's fairly important that I have a solution like this.
@@ -34,7 +38,7 @@ services:
     restart: ${DAWARICH_RESTART:-unless-stopped}
     volumes:
       - /etc/localtime:/etc/localtime:ro
-      - ./etc/dawrich/storage:/var/app/storage
+      - ./etc/dawarich/storage:/var/app/storage
     networks:
       - traefik
     stdin_open: true
@@ -110,7 +114,7 @@ services:
     volumes:
       - ./etc/dawarich/public:/var/app/public
       - ./etc/dawarich/watched:/var/app/tmp/imports/watched
-      - ./etc/dawrich/storage:/var/app/storage
+      - ./etc/dawarich/storage:/var/app/storage
     networks:
       - traefik
     stdin_open: true
