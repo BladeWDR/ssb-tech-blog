@@ -1,7 +1,7 @@
 +++
 title = 'Proxmox Setup Notes'
 date = 2025-08-07T22:02:02-04:00
-draft = true
+draft = false
 +++
 
 # Proxmox installation steps
