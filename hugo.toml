@@ -1,6 +1,6 @@
 baseURL = 'https://blog.ssb-tech.net/'
 languageCode = 'en-us'
-title = 'Sysadmin Tales: A Blog'
+title = 'Sysadmin Tales'
 theme = 'm10c'
 enableGitInfo = true
 [frontmatter]
