@@ -36,6 +36,10 @@ This was _mostly_ fine, though I had to make a few tweaks to their environment v
 
 Here's what my Docker Compose file wound up looking like at the end. The OIDC values have been replaced with gibberish, make sure to substitute your own if you copy and paste.
 
+{{% callout note %}}
+2025/08/21 - After posting this I began noticing that my feeds were no longer auto-updating. As it turns out, the FreshRSS official Docker image [disabled this feature by default unless you pass it the CRON_MIN environment variable](https://freshrss.github.io/FreshRSS/en/admins/08_FeedUpdates.html). I have updated the Docker Compose file below with a setting that works.
+{{% /callout %}}
+
 ```yaml
 services:
   freshrss:
@@ -44,6 +48,7 @@ services:
       - PUID=1000
       - PGID=1000
       - TZ=America/New_York
+      - CRON_MIN='2,32'
       - TRUSTED_PROXY=172.23.0.0/16
       - OIDC_ENABLED=1
       - OIDC_PROVIDER_METADATA_URL="https://auth.example.com/application/o/fresh-rss-oidc/.well-known/openid-configuration"
