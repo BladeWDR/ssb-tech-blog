@@ -48,7 +48,7 @@ services:
       - PUID=1000
       - PGID=1000
       - TZ=America/New_York
-      - CRON_MIN='2,32'
+      - CRON_MIN=2,32
       - TRUSTED_PROXY=172.23.0.0/16
       - OIDC_ENABLED=1
       - OIDC_PROVIDER_METADATA_URL="https://auth.example.com/application/o/fresh-rss-oidc/.well-known/openid-configuration"
