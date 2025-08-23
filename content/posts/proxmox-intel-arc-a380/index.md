@@ -28,7 +28,7 @@ configuration: latency=0
 
 I'm not going to go through all the troubleshooting I did, just share what worked.
 
-The A380 is very new, so we need to force the kernel to load the XE driver.
+We need to force the kernel to load the i915 driver.
 
 In addition to this, because I'm using [cloud-init](https://cloudinit.readthedocs.io/en/latest/index.html) and one of Ubuntu's [Cloud Images](https://cloud-images.ubuntu.com/), I can't simply specify the kernel parameter in `/etc/default/grub`. If you're not using cloud-init, ignore the next step and simply specify this in `/etc/default/grub` like so:
 
