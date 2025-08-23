@@ -32,7 +32,7 @@ The A380 is very new, so we need to force the kernel to load the XE driver.
 
 In addition to this, because I'm using [cloud-init](https://cloudinit.readthedocs.io/en/latest/index.html) and one of Ubuntu's [Cloud Images](https://cloud-images.ubuntu.com/), I can't simply specify the kernel parameter in `/etc/default/grub`. If you're not using cloud-init, ignore the next step and simply specify this in `/etc/default/grub` like so:
 
-`GRUB_CMDLINE_LINUX_DEFAULT="quiet xe.force_probe=56a5 i915.force_probe=!56a5`
+`GRUB_CMDLINE_LINUX_DEFAULT="quiet i915.force_probe=56a5`
 
 Then run `update-grub` and reboot.
 
@@ -42,11 +42,16 @@ These steps may be different if you're using a distro like Fedora - I believe th
 
 However, for those of us using cloud-init, you can instead simply specify these parameters in `/etc/modprobe.d/`
 
-`sudo vim /etc/modprobe.d/xe.conf`
+`sudo vim /etc/modprobe.d/i915.conf`
+
+{{% callout note %}}
+2025/08/23: This originally was set to load in the Xe driver and disable i915, but I found out later that things like Jellyfin do not have support for Xe, at least not yet. For now, you must force_probe the i915 driver instead.
+
+As of today I have tested this with both Jellyfin and Plex and can confirm the card works as expected.
+{{% /callout %}}
 
 ```
-options xe force_probe=56a5
-options i915 force_probe=!56a5
+options i915 force_probe=56a5
 ```
 
 Now that that's done, here are my PCI passthrough settings on the VM:
