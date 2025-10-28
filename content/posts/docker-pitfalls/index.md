@@ -62,6 +62,58 @@ Above, we have an extremely simple docker compose file, with a single applicatio
 
 You can see in the `POSTGRES_CONNECTION_STRING` environment variable that it is using the name of the service to communicate with the database.
 
+### Creating network bridges
+
+But what if I don't want or can't have the containers in the same Compose project?
+
+That's where creating your own bridges comes in.
+
+There are several different adapter types in Docker, the most common of them is the bridge, so that's the only one we'll be talking about in this article.
+
+I'm sure as hell not going to get into macvlan or any of that, that's a whole article on its own.
+
+Here you can create a bridge:
+
+`docker network create proxy`
+
+Where `proxy` can be anything you like, it's just the name you gave the bridge.
+
+This is how you can use external bridges in Docker compose:
+
+```yaml
+services:
+  app01:
+    networks:
+      - proxy
+
+networks:
+  proxy:
+    external: true
+```
+
+The key here is that you specify that the network is _external_ to the compose project, and that you specify that each container should use that network instead of the default bridge that would have been created.
+
+You can also specify more than one network per container. This can be useful if you have some containers that need external connectivity but others that don't.
+
+For example, you could have one bridge that's used by containers to communicate with the database, and another that the frontend uses to talk to the backend.
+
+Example:
+
+```yaml
+services:
+  app01:
+    networks:
+      - proxy
+      - database
+
+networks:
+  proxy:
+    external: true
+  database:
+```
+
+Note that the `database` network is _not_ external here, so it will be created when you run `docker compose up`.
+
 ### Exposing ports
 
 Next, lets get into how Docker handles exposing ports.
@@ -148,7 +200,7 @@ All communication with Vaultwarden would go through the proxy, so there's no nee
 
 **_Remember that when containers are talking internally like this, you use the INTERNAL port (the one that would be on the right), instead of the one you would have exposed on the outside._**
 
-Nginx can talk to Vaultwarden and vice versa - there is no reason for a user to directly interact with the other container.
+Nginx can talk to Vaultwarden and vice versa - there is no reason for a user to directly interact with the other container, so why let them?
 
 This is also valid syntax:
 
