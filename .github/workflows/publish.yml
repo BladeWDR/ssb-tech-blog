@@ -9,7 +9,7 @@ on:
   workflow_dispatch:
 
 env:
-  HUGO_VERSION: 0.137.1
+  HUGO_VERSION: 0.158.0
 
 jobs:
   build:
