@@ -63,7 +63,7 @@ jobs:
 
 
       - name: Rsync the public directory to the remote server.
-        run: rsync -az --delete --omit-dir-times -e "ssh -o StrictHostKeyChecking=no -i $HOME/.ssh/id_ed25519 -o UserKnownHostsFile=/dev/null" ./public/ github@${{ secrets.HOST_IP_ADDRESS }}:/var/www/blog.ssb-tech.net/
+        run: rsync -az --delete --omit-dir-times --no-perms -e "ssh -o StrictHostKeyChecking=no -i $HOME/.ssh/id_ed25519 -o UserKnownHostsFile=/dev/null" ./public/ github@${{ secrets.HOST_IP_ADDRESS }}:/var/www/blog.ssb-tech.net/
 
       - name: Clean up .ssh directory.
         run: rm -rf "$HOME/.ssh"
