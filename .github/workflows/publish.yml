@@ -62,8 +62,8 @@ jobs:
           fi
 
 
-      - name: SCP the public directory to the remote server.
-        run: scp -r -i "$HOME/.ssh/id_ed25519" ./public/* github@${{ secrets.HOST_IP_ADDRESS }}:/var/www/blog.ssb-tech.net
+      - name: Rsync the public directory to the remote server.
+        run: rsync -az --delete -e "ssh -o StrictHostKeyChecking=no -i $HOME/.ssh/id_ed25519 -o UserKnownHostsFile=/dev/null" ./public/ github@${{ secrets.HOST_IP_ADDRESS }}:/var/www/blog.ssb-tech.net
 
       - name: Clean up .ssh directory.
         run: rm -rf "$HOME/.ssh"
