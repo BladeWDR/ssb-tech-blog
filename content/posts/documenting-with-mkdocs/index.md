@@ -42,11 +42,11 @@ You can apply all of these ideas using the actual Obsidian editor (or any other 
 
 I do, however, use the Obsidian mobile app when I need to write notes on mobile. The [GitSync](https://gitsync.viscouspotenti.al/) Android app allows me to keep the remote repository in sync.
 
-### Continuous Deployment Workflow
+## Continuous Deployment Workflow
 
 I'm accomplishing this with [Forgejo](https://forgejo.org/) and an [Nginx](https://nginx.org/) webserver.
 
-## The Workflow
+### The Workflow
 
 1. I edit all of my notes in Markdown using Neovim.
 2. I push the changes to my Forgejo repository.
@@ -54,7 +54,7 @@ I'm accomplishing this with [Forgejo](https://forgejo.org/) and an [Nginx](https
 
 The reason I like this so much is that it reduces friction for entering notes significantly, and also allows me to link notes together logically.
 
-## Setting It Up
+### Setting It Up
 
 If you want to get this set up yourself you can follow these steps.
 
