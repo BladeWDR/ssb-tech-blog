@@ -359,6 +359,8 @@ You'll need to enter the fully qualified domain name of the RADIUS server. (radi
 
 On iOS you may need to trust the certificate the first time you connect.
 
+![Showing how to configure a WiFi network with TTLS and MSChapv2 on Android](images/AndroidTTLS.png)
+
 ## Credits
 
 [https://xenomorph.net/linux/ubuntu/misc/radius-unifi/](https://xenomorph.net/linux/ubuntu/misc/radius-unifi/)
