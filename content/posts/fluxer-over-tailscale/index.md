@@ -12,7 +12,9 @@ And for an additional challenge - I wanted this to be completely inaccessible fr
 
 The setup required some heavy modifications to the Docker Compose file provided by Fluxer's team, and a few tweaks to `livekit.yaml`.
 
+{{% callout note %}}
 The Docker Compose file for this service is extremely long, so instead of posting it inline here as I normally do, I have created this [Gist](https://gist.github.com/BladeWDR/1b062af5eede7e0c46a3446d46b4f889) containing both the modified Compose project and `livekit.yaml`.
+{{% /callout %}}
 
 With this setup, I'm able to access Fluxer at `fluxer.mytailnet.ts.net` with full TLS encryption and valid certificates.
 
