@@ -1,2 +1,3 @@
 # ignore the rendered site.
 public/
+.DS_Store
