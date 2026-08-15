@@ -1,5 +1,5 @@
 baseURL = 'https://blog.ssb-tech.net/'
-languageCode = 'en-us'
+locale = 'en-us'
 title = 'Sysadmin Tales'
 theme = 'm10c'
 enableGitInfo = true
