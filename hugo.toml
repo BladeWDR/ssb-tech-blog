@@ -20,6 +20,9 @@ enableGitInfo = true
   icon = "brand-bluesky"
   name = "BlueSky"
   url = "https://bsky.app/profile/bladewdr.xyz"
+[[menu.main]]
+    name = "Things I Follow"
+    url = "/feeds/"
 [markup]
   [markup.goldmark]
     [markup.goldmark.parser]

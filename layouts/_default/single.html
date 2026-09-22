@@ -31,9 +31,11 @@
       </div>
       {{- end }}
     </header>
+    {{ if ne .Params.toc false }}
     <div class="post-toc">
       {{ .TableOfContents }}
     </div>
+    {{ end }}
     <div class="post-content">
       {{ .Content }}
     </div>
