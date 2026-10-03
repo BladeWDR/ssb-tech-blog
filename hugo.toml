@@ -1,33 +1,79 @@
 baseURL = 'https://blog.ssb-tech.net/'
 locale = 'en-us'
 title = 'Sysadmin Tales'
-theme = 'm10c'
+theme = 'PaperMod'
 enableGitInfo = true
+mainSections = ["posts"]
+
+[outputs]
+  home = ["HTML", "RSS", "JSON"]
+
+[taxonomies]
+  category = "categories"
+  tag = "tags"
+
 [frontmatter]
-    lastmod = ["lastmod", ":git", "date", "publishDate"]
+  lastmod = ["lastmod", ":git", "date", "publishDate"]
+
 [params]
   description = "Follow me as I test out things in my homelab. I may also go on rants occasionally. Sorry about the mess."
-  avatar = "author-image.png"
-[[params.social]]
-  icon = "brand-github"
-  name = "Github"
-  url = "https://github.com/bladewdr"
-[[params.social]]
-  icon = "brand-rss"
-  name = "RSS"
-  url = "https://blog.ssb-tech.net/index.xml"
-[[params.social]]
-  icon = "brand-bluesky"
-  name = "BlueSky"
-  url = "https://bsky.app/profile/bladewdr.xyz"
+  defaultTheme = "dark"
+  disableThemeToggle = false
+  ShowShareButtons = false
+  ShowReadingTime = true
+  ShowCodeCopyButtons = true
+  ShowBreadCrumbs = true
+  ShowPostNavLinks = true
+  ShowToc = true
+  comments = true
+
+  [params.homeInfoParams]
+    Title = "Sysadmin Tales"
+    Content = "Follow me as I test out things in my homelab. I may also go on rants occasionally. Sorry about the mess."
+
+  [params.label]
+    text = "Sysadmin Tales"
+    icon = "author-image.png"
+    iconHeight = 35
+
+  [params.assets]
+    favicon = "/favicon.ico"
+
+  [[params.socialIcons]]
+    name = "github"
+    title = "Github"
+    url = "https://github.com/bladewdr"
+
+  [[params.socialIcons]]
+    name = "rss"
+    title = "RSS"
+    url = "https://blog.ssb-tech.net/index.xml"
+
+  [[params.socialIcons]]
+    name = "bluesky"
+    title = "BlueSky"
+    url = "https://bsky.app/profile/bladewdr.xyz"
+
 [[menu.main]]
-    name = "Things I Follow"
-    url = "/feeds/"
+  name = "Search"
+  url = "/search/"
+  weight = 5
+
+[[menu.main]]
+  name = "Categories"
+  url = "/categories/"
+  weight = 10
+
+[[menu.main]]
+  name = "Things I Follow"
+  url = "/feeds/"
+  weight = 20
+
 [markup]
   [markup.goldmark]
     [markup.goldmark.parser]
       [markup.goldmark.parser.attribute]
         block = true
         title = true
-[markup.goldmark.renderer]
-unsafe = true
+    [markup.goldmark.renderer]
+      unsafe = true
