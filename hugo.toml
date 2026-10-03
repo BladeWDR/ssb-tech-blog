@@ -30,6 +30,7 @@ mainSections = ["posts"]
   [params.homeInfoParams]
     Title = "Sysadmin Tales"
     Content = "Follow me as I test out things in my homelab. I may also go on rants occasionally. Sorry about the mess."
+    AlignSocialIconsTo = "center"
 
   [params.label]
     text = "Sysadmin Tales"
