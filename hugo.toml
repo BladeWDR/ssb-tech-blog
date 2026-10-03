@@ -60,9 +60,14 @@ mainSections = ["posts"]
   weight = 5
 
 [[menu.main]]
+  name = "Tags"
+  url = "/tags/"
+  weight = 10
+
+[[menu.main]]
   name = "Categories"
   url = "/categories/"
-  weight = 10
+  weight = 15
 
 [[menu.main]]
   name = "Things I Follow"
