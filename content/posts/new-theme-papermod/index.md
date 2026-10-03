@@ -1,7 +1,7 @@
 +++
 title = 'New Theme Papermod'
 date = 2026-10-02T21:20:58-04:00
-draft = true
+draft = false
 tags = ["hugo"]
 categories = []
 +++
