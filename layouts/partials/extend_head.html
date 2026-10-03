@@ -11,4 +11,94 @@ async src="//stats.bladewdr.xyz/count.js"></script>
 .home-info .social-icons[align="center"] a:first-of-type {
   padding-inline-start: 10px;
 }
+
+/* Callouts styled for PaperMod */
+.callout {
+  margin: 1.5rem 0;
+  padding: 1rem 1.25rem;
+  border-radius: var(--radius, 8px);
+  border: 1px solid var(--border, #333);
+  border-inline-start: 4px solid var(--callout-border, #60a5fa);
+  background: var(--callout-bg, rgba(59, 130, 246, 0.1));
+}
+
+.callout-title {
+  font-weight: 600;
+  font-size: 0.95rem;
+  margin-bottom: 0.4rem;
+  color: var(--callout-title, #93c5fd);
+  text-transform: uppercase;
+  letter-spacing: 0.03em;
+}
+
+.callout p:first-child,
+.callout-content p:first-child {
+  margin-top: 0;
+}
+.callout p:last-child,
+.callout-content p:last-child {
+  margin-bottom: 0;
+}
+
+li > .callout {
+  margin: 0.75rem 0;
+}
+
+/* Note (Default) & Aside */
+.callout-note,
+.callout-aside {
+  --callout-border: #60a5fa;
+  --callout-bg: rgba(59, 130, 246, 0.1);
+  --callout-title: #93c5fd;
+}
+[data-theme="light"] .callout-note,
+[data-theme="light"] .callout-aside,
+:root:not([data-theme="dark"]) .callout-note,
+:root:not([data-theme="dark"]) .callout-aside {
+  --callout-border: #2563eb;
+  --callout-bg: rgba(37, 99, 235, 0.06);
+  --callout-title: #1d4ed8;
+}
+
+/* Tip */
+.callout-tip {
+  --callout-border: #34d399;
+  --callout-bg: rgba(16, 185, 129, 0.1);
+  --callout-title: #6ee7b7;
+}
+[data-theme="light"] .callout-tip,
+:root:not([data-theme="dark"]) .callout-tip {
+  --callout-border: #059669;
+  --callout-bg: rgba(5, 150, 105, 0.06);
+  --callout-title: #047857;
+}
+
+/* Warning */
+.callout-warning {
+  --callout-border: #fbbf24;
+  --callout-bg: rgba(245, 158, 11, 0.1);
+  --callout-title: #fde68a;
+}
+[data-theme="light"] .callout-warning,
+:root:not([data-theme="dark"]) .callout-warning {
+  --callout-border: #d97706;
+  --callout-bg: rgba(217, 119, 6, 0.06);
+  --callout-title: #b45309;
+}
+
+/* Danger / Caution */
+.callout-danger,
+.callout-caution {
+  --callout-border: #f87171;
+  --callout-bg: rgba(239, 68, 68, 0.1);
+  --callout-title: #fca5a5;
+}
+[data-theme="light"] .callout-danger,
+:root:not([data-theme="dark"]) .callout-danger,
+[data-theme="light"] .callout-caution,
+:root:not([data-theme="dark"]) .callout-caution {
+  --callout-border: #dc2626;
+  --callout-bg: rgba(220, 38, 38, 0.06);
+  --callout-title: #b91c1c;
+}
 </style>

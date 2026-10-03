@@ -91,11 +91,9 @@ I could just ignore the certificate error, but where's the fun in that when we c
 
     You should be able to reload the GLiNet web interface and see that you have a valid LetsEncrypt certificate for your Tailscale MagicDNS name.
 
-    ```
-    <aside>
+    {{% callout aside %}}
     Make sure you're accessing the device at `your-kvm.yourtailnet.ts.net` and not it's IP address, or the certificate won't validate.
-    </aside>
-    ```
+    {{% /callout %}}
 
 8. Now, lets create a cron job to run the script automatically. The GliNet KVMs already run a cron daemon (at least the ones that I've used do) - so you should be able to directly edit the crontab.
     ```bash
