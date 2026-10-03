@@ -2,6 +2,7 @@
 title = 'Replacing Pocket Casts'
 date = 2025-05-05T08:53:26-04:00
 draft = false
+tags = ["podcasts", "self-hosted", "android"]
 +++
 
 # Replacing Pocket Casts

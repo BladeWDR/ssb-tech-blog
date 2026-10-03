@@ -2,6 +2,7 @@
 title = 'Self-Hosted eBook Servers'
 date = 2024-12-30T15:57:41-05:00
 draft = true
+tags = ["ebooks", "self-hosted"]
 +++
 
 # Self-Hosted eBook Servers

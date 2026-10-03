@@ -2,6 +2,7 @@
 date = '2024-12-16T18:28:57-05:00'
 draft = false
 title = 'Caching Apt Repositories on TrueNAS'
+tags = ["truenas", "debian", "nginx"]
 +++
 
 # Overview

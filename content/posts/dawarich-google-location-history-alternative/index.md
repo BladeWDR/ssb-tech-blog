@@ -2,6 +2,7 @@
 title = 'Dawarich - A Google Location History Alternative'
 date = 2025-05-14T19:13:45-04:00
 draft = false
+tags = ["self-hosted", "docker"]
 +++
 
 {{% callout note %}}

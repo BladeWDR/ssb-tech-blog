@@ -2,6 +2,7 @@
 title = 'Allow users to set Bitlocker PIN using PowerShell and RMM'
 date = 2026-05-28T10:19:38-04:00
 draft = false
+tags = ["powershell", "bitlocker", "windows"]
 +++
 
 For a while now I've been searching for an automated way to have our clients with higher security needs (mostly local government offices.)

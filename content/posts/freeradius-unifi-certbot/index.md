@@ -2,6 +2,7 @@
 title = 'Setting up FreeRADIUS with an Active Directory backend for use with Unifi WiFi'
 date = 2026-03-31T15:56:30-04:00
 draft = false
+tags = ["radius", "unifi", "active-directory"]
 +++
 
 Or in other words, how to configure 802.1x authentication with an Active Directory backend.

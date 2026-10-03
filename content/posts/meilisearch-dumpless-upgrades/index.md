@@ -2,6 +2,7 @@
 title = 'Meilisearch Dumpless Upgrades'
 date = 2026-04-03T15:54:33-04:00
 draft = false
+tags = ["meilisearch", "docker"]
 +++
 
 Short one today.

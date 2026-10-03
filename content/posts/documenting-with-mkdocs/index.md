@@ -2,6 +2,7 @@
 title = 'Creating your own documentation with Mkdocs and Obsidian'
 date = 2026-03-21T17:32:53-04:00
 draft = false
+tags = ["mkdocs", "obsidian", "documentation"]
 +++
 
 # Creating your own documentation with Mkdocs and Obsidian

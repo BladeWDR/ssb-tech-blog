@@ -2,6 +2,7 @@
 date = '2024-12-08T16:44:53-05:00'
 draft = false
 title = 'How to build up Fedora Server Edition to a desktop'
+tags = ["fedora", "linux", "desktop"]
 +++
 
 # How to build up Fedora Server Edition to a desktop

@@ -2,6 +2,7 @@
 title = 'I switched to GrapheneOS'
 date = 2026-03-28T15:41:08-04:00
 draft = false
+tags = ["grapheneos", "privacy", "android"]
 +++
 
 # I switched to GrapheneOS

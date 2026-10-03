@@ -2,6 +2,7 @@
 title = 'Proxying AdGuard Home DNS-over-HTTPS with Nginx'
 date = 2025-10-28T20:38:03-04:00
 draft = false
+tags = ["adguard", "dns", "nginx"]
 +++
 
 A few months ago I switched from using Pi-hole to AdGuardHome for serving adblocking DNS to not just the clients in my home, but also my mobile devices.

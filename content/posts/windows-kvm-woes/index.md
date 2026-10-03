@@ -2,6 +2,7 @@
 title = 'Issues transferring Windows 11 VM from KVM to Proxmox'
 date = 2026-02-20T21:11:38-05:00
 draft = false
+tags = ["proxmox", "kvm", "windows"]
 +++
 
 I ran into a strange issue when trying to transfer a Windows 11 Pro virtual machine from KVM on my Fedora desktop to Proxmox.

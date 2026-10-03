@@ -2,6 +2,7 @@
 title = 'Wireguard configuration concepts'
 date = 2025-10-26T15:04:55-04:00
 draft = false
+tags = ["wireguard", "vpn", "networking"]
 +++
 
 # Wireguard concepts

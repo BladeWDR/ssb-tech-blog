@@ -2,6 +2,7 @@
 title = 'Passing through Intel Arc A380 to a Proxmox VM'
 date = 2025-08-17T18:02:07-04:00
 draft = false
+tags = ["proxmox", "gpu-passthrough", "intel"]
 +++
 
 I recently purchased an AsRock Challenger ITX Intel Arc A380 GPU to use for my video transcoding needs.

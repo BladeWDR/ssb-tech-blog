@@ -2,6 +2,7 @@
 title = 'Connecting an Existing FreshRSS instance to OIDC'
 date = 2025-08-15T21:05:44-04:00
 draft = false
+tags = ["freshrss", "authentik", "oidc"]
 +++
 
 # Connecting an existing FreshRSS instance to OIDC

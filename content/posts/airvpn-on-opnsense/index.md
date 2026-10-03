@@ -2,6 +2,7 @@
 date = '2024-12-03T22:41:53-05:00'
 draft = false
 title = 'Setting up OpnSense as an AirVPN client'
+tags = ["opnsense", "wireguard", "vpn"]
 +++
 
 I recently set up my OpnSense firewall at home with a connection to AirVPN using Wireguard.

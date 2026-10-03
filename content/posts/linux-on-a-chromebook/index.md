@@ -2,6 +2,7 @@
 title = 'Linux on an Asus CR11 Chromebook'
 date = 2025-12-13T15:52:08-05:00
 draft = false
+tags = ["linux", "chromebook", "hardware"]
 +++
 
 ## In which I have zero self control

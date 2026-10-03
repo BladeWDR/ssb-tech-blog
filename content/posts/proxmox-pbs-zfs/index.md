@@ -2,6 +2,7 @@
 title = 'Deduplicated Proxmox backups with Proxmox Backup Server and ZFS'
 date = 2026-04-22T23:23:10Z
 draft = false
+tags = ["proxmox", "zfs", "backup"]
 +++
 
 ## Overview

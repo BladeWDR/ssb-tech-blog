@@ -2,6 +2,7 @@
 title = 'Routing to Tailscale clients from a local network with OPNSense'
 date = 2026-08-15T16:45:12-04:00
 draft = false
+tags = ["opnsense", "tailscale", "networking"]
 +++
 
 ## Overview

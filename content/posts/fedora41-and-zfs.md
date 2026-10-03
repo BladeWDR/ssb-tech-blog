@@ -2,6 +2,7 @@
 date = '2024-12-09T20:40:18-05:00'
 draft = false
 title = 'Fedora 41 and ZFS'
+tags = ["fedora", "zfs", "linux"]
 +++
 
 {{% callout note %}}

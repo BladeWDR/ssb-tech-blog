@@ -2,6 +2,7 @@
 title = 'Getting started with Docker'
 date = 2025-10-26T15:41:37-04:00
 draft = false
+tags = ["docker", "containers"]
 +++
 
 # Getting started with Docker

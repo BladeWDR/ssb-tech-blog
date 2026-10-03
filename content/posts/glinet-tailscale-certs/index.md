@@ -2,6 +2,7 @@
 title = 'Set up auto-renewing HTTPS certificates on a GLiNet KVM'
 date = 2026-10-02T20:21:30-04:00
 draft = false
+tags = ["tailscale", "glinet", "certificates"]
 +++
 
 I'm quite fond of the small little IP KVMs that have become more and more available lately.

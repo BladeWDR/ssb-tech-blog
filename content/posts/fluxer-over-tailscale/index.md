@@ -2,6 +2,7 @@
 title = 'Fluxer Over Tailscale'
 date = 2026-06-20T21:36:21-04:00
 draft = false
+tags = ["tailscale", "networking"]
 +++
 
 This weekend I've been playing with setting up a self-hosted [Fluxer](https://fluxer.app) instance.

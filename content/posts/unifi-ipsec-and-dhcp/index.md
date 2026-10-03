@@ -2,6 +2,7 @@
 title = 'PSA: Unifi IPSec site-to-site tunnels and DHCP'
 date = 2025-04-01T13:09:28-04:00
 draft = false
+tags = ["unifi", "ipsec", "networking"]
 +++
 
 Bit of a PSA of sorts, as this is the second time that I have run into this particular issue.

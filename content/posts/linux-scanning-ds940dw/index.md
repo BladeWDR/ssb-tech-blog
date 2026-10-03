@@ -2,6 +2,7 @@
 title = 'Setting up brscan-skey with the Brother DS-940DW on Ubuntu'
 date = 2025-06-13T18:58:09-04:00
 draft = false
+tags = ["ubuntu", "linux", "hardware"]
 +++
 
 # Setting up brscan-skey with the Brother DS-940DW on Ubuntu

@@ -2,6 +2,7 @@
 title = 'Configuring Apache for OIDC with an Authentik backend'
 date = 2025-02-26T20:06:16-05:00
 draft = false
+tags = ["apache", "authentik", "oidc"]
 +++
 
 ## Summary

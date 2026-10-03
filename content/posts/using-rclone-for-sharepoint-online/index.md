@@ -2,6 +2,7 @@
 title = 'Connecting rclone to SharePoint Online'
 date = 2025-03-19T15:18:48-04:00
 draft = false
+tags = ["rclone", "sharepoint", "cloud"]
 +++
 
 # Connecting rclone to SharePoint Online

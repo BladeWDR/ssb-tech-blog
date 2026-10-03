@@ -2,6 +2,7 @@
 title = 'TrueNAS Scale - ZFS Replication Without Root'
 date = 2025-03-21T15:15:20-04:00
 draft = false
+tags = ["truenas", "zfs", "backup"]
 +++
 
 ## Overview

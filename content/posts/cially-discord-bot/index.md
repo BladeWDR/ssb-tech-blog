@@ -2,6 +2,7 @@
 title = 'How to set up the Cially Dashboard for Discord'
 date = 2025-05-19T21:46:40-04:00
 draft = false
+tags = ["discord", "self-hosted"]
 +++
 
 # How to set up the Cially Dashboard for Discord

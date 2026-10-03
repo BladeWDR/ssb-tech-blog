@@ -2,6 +2,7 @@
 title = 'Thoughts on starting a media server in 2025'
 date = 2025-01-03T17:56:14-05:00
 draft = false
+tags = ["media-server", "homelab", "hardware"]
 +++
 
 # Thoughts on starting a media server in 2025

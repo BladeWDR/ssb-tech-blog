@@ -2,6 +2,7 @@
 title = 'Using Calibre and the DeDRM plugin to strip DRM from Amazon eBooks'
 date = 2026-02-15T20:58:33-05:00
 draft = false
+tags = ["calibre", "ebooks", "drm"]
 +++
 
 # Using Calibre and the DeDRM plugin to remove DRM from Amazon eBooks
