@@ -1,0 +1,190 @@
+#!/usr/bin/env python3
+"""
+Git pre-commit hook to validate TOML frontmatter in Hugo content and TOML configuration files.
+"""
+
+import os
+import sys
+import subprocess
+
+try:
+    import tomllib
+except ModuleNotFoundError:
+    try:
+        import tomli as tomllib
+    except ModuleNotFoundError:
+        sys.stderr.write(
+            "Error: Python 3.11+ (with built-in 'tomllib') or the 'tomli' package is required for TOML validation.\n"
+        )
+        sys.exit(1)
+
+IGNORED_DIRS = {".git", "public", "themes", "archetypes", "node_modules", "resources"}
+TARGET_EXTS = {".md", ".markdown", ".toml"}
+
+def use_colors():
+    if os.environ.get("NO_COLOR"):
+        return False
+    return sys.stderr.isatty() and os.environ.get("TERM", "") != "dumb"
+
+RED = "\033[1;31m" if use_colors() else ""
+YELLOW = "\033[0;33m" if use_colors() else ""
+BOLD = "\033[1m" if use_colors() else ""
+CYAN = "\033[0;36m" if use_colors() else ""
+RESET = "\033[0m" if use_colors() else ""
+
+def should_check_path(path: str) -> bool:
+    parts = os.path.normpath(path).split(os.sep)
+    if any(p in IGNORED_DIRS for p in parts):
+        return False
+    _, ext = os.path.splitext(path)
+    return ext.lower() in TARGET_EXTS
+
+def get_hint(msg: str, line: str) -> str:
+    if "Invalid value" in msg:
+        if "[" in line and "]" in line:
+            return 'Strings in TOML arrays must be enclosed in quotes (e.g. tags = ["tag1", "tag2"]).'
+        return 'Strings in TOML must be enclosed in quotes (e.g. key = "value").'
+    if "Expected newline or end of document" in msg:
+        return 'Check for unquoted strings, missing commas, or unescaped characters on this line.'
+    return ""
+
+def validate_content(path: str, content: str):
+    """
+    Validates TOML content for a file.
+    Returns a list of errors: (lineno, colno, message, line_text, hint)
+    """
+    _, ext = os.path.splitext(path)
+    lines = content.splitlines()
+
+    if ext.lower() == ".toml":
+        try:
+            tomllib.loads(content)
+            return []
+        except tomllib.TOMLDecodeError as e:
+            lineno = e.lineno
+            colno = e.colno
+            err_line = lines[lineno - 1] if 0 <= lineno - 1 < len(lines) else ""
+            hint = get_hint(e.msg, err_line)
+            return [(lineno, colno, e.msg, err_line, hint)]
+
+    # For Markdown files: look for TOML frontmatter delimited by +++
+    open_idx = None
+    for i, line in enumerate(lines):
+        s = line.strip()
+        if not s:
+            continue
+        if s == "+++":
+            open_idx = i
+            break
+        else:
+            # First non-empty line is not +++, so not TOML frontmatter (e.g. YAML or plain markdown)
+            return []
+
+    close_idx = None
+    for i in range(open_idx + 1, len(lines)):
+        if lines[i].strip() == "+++":
+            close_idx = i
+            break
+
+    if close_idx is None:
+        return [
+            (
+                open_idx + 1,
+                1,
+                "Unclosed TOML frontmatter: missing closing '+++' delimiter",
+                lines[open_idx],
+                "Frontmatter starting with +++ must be closed with another +++ line.",
+            )
+        ]
+
+    toml_lines = lines[open_idx + 1 : close_idx]
+    toml_str = "\n".join(toml_lines)
+
+    try:
+        tomllib.loads(toml_str)
+        return []
+    except tomllib.TOMLDecodeError as e:
+        # e.lineno is 1-indexed relative to toml_str
+        file_lineno = open_idx + 1 + e.lineno
+        err_line = lines[file_lineno - 1] if 0 <= file_lineno - 1 < len(lines) else ""
+        hint = get_hint(e.msg, err_line)
+        return [(file_lineno, e.colno, e.msg, err_line, hint)]
+
+def get_staged_files():
+    cmd = ["git", "diff", "--cached", "--name-only", "--diff-filter=ACM", "-z"]
+    res = subprocess.run(cmd, capture_output=True)
+    if res.returncode != 0:
+        return []
+    raw = res.stdout
+    files = [f.decode("utf-8") for f in raw.split(b"\0") if f]
+    return [f for f in files if should_check_path(f)]
+
+def get_staged_content(path: str) -> str:
+    res = subprocess.run(["git", "show", f":{path}"], capture_output=True)
+    if res.returncode != 0:
+        with open(path, "r", encoding="utf-8", errors="replace") as f:
+            return f.read()
+    return res.stdout.decode("utf-8", errors="replace")
+
+def main():
+    args = sys.argv[1:]
+    files_to_check = []
+    read_from_git = False
+
+    if "--all" in args:
+        for root, dirs, files in os.walk("."):
+            dirs[:] = [d for d in dirs if d not in IGNORED_DIRS]
+            for file in files:
+                p = os.path.relpath(os.path.join(root, file))
+                if should_check_path(p):
+                    files_to_check.append(p)
+    elif args:
+        for arg in args:
+            if not arg.startswith("-") and should_check_path(arg):
+                files_to_check.append(arg)
+    else:
+        read_from_git = True
+        files_to_check = get_staged_files()
+
+    if not files_to_check:
+        sys.exit(0)
+
+    total_errors = 0
+    for path in files_to_check:
+        try:
+            if read_from_git:
+                content = get_staged_content(path)
+            else:
+                with open(path, "r", encoding="utf-8", errors="replace") as f:
+                    content = f.read()
+        except Exception as e:
+            sys.stderr.write(f"{RED}Error reading {path}: {e}{RESET}\n")
+            total_errors += 1
+            continue
+
+        errors = validate_content(path, content)
+        if errors:
+            total_errors += len(errors)
+            for lineno, colno, msg, line_text, hint in errors:
+                sys.stderr.write(
+                    f"\n{RED}ERROR: Invalid TOML in {BOLD}{path}{RESET}{RED} (line {lineno}, col {colno}){RESET}\n"
+                )
+                sys.stderr.write(f"  {CYAN}{msg}{RESET}\n\n")
+                if line_text:
+                    prefix = f"  {lineno:4d} | "
+                    sys.stderr.write(f"{prefix}{line_text}\n")
+                    padding = " " * (len(prefix) + colno - 1)
+                    sys.stderr.write(f"{RED}{padding}^{RESET}\n")
+                if hint:
+                    sys.stderr.write(f"\n  {YELLOW}💡 Hint: {hint}{RESET}\n")
+
+    if total_errors > 0:
+        sys.stderr.write(
+            f"\n{RED}✖ Commit aborted: {total_errors} TOML syntax error(s) found in frontmatter/config.{RESET}\n\n"
+        )
+        sys.exit(1)
+
+    sys.exit(0)
+
+if __name__ == "__main__":
+    main()
